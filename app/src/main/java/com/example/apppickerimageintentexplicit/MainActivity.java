@@ -39,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-                intent.putExtra("text","Hello");
+                // Truyền chuỗi sang màn hình 2
+                //intent.putExtra("text","Hello");
+                //Truyền mảng array (1 mảng )
+                intent.putExtra("arr_drawable",mArrayDrawable);
                 startActivity(intent);
             }
         });
