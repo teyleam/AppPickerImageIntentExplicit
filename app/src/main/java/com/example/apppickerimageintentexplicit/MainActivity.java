@@ -1,10 +1,17 @@
 package com.example.apppickerimageintentexplicit;
 
+import static com.example.apppickerimageintentexplicit.R.id.menu_item_refresh;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -45,5 +52,21 @@ public class MainActivity extends AppCompatActivity {
         //Truyền vị trí hình theo [] resource drawable
         int resourceImage = getResources().getIdentifier(name,"drawable",getPackageName());
         return resourceImage;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+            if(id == R.id.menu_item_refresh){
+                mResourceRandom = randomImage(mArrayDrawable);
+                mImgRandom.setImageResource(randomImage(mArrayDrawable));
+        }
+        return true;
     }
 }

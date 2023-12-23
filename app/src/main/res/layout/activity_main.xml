@@ -16,7 +16,7 @@
         android:layout_height="200dp" />
     <TextView
         android:background="#FFEB3B"
-        android:textColor="#f20"
+        android:textColor="#00ACC1"
         android:textAllCaps="true"
         android:textSize="35sp"
         android:gravity="center"
