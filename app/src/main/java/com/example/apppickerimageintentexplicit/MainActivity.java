@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 // Truyền chuỗi sang màn hình 2
                 //intent.putExtra("text","Hello");
                 //Truyền mảng array (1 mảng )
-                intent.putExtra("arr_drawable",mArrayDrawable);
+//                intent.putExtra("arr_drawable",mArrayDrawable);
+                Animal animal = new Animal("cat",2);
+                intent.putExtra("animal", animal);
                 startActivity(intent);
             }
         });

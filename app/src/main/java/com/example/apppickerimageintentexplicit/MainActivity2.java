@@ -20,8 +20,9 @@ public class MainActivity2 extends AppCompatActivity {
             //Lấy dữ liệu text
             //String text = intent.getStringExtra("text");
             //Lấy dữ liệu mảng
-            String[] arrDrawable = intent.getStringArrayExtra("arr_drawable");
-            Toast.makeText(MainActivity2.this,arrDrawable.length + "",Toast.LENGTH_SHORT).show();
+//            String[] arrDrawable = intent.getStringArrayExtra("arr_drawable");
+            Animal animal = (Animal) intent.getSerializableExtra("animal");
+            Toast.makeText(MainActivity2.this,animal.toString()+ "",Toast.LENGTH_SHORT).show();
         }
     }
 }
