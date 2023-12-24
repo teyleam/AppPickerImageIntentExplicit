@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 // Truyền chuỗi sang màn hình 2
                 //intent.putExtra("text","Hello");
                 //Truyền mảng array (1 mảng )
-//                intent.putExtra("arr_drawable",mArrayDrawable);
-                Animal animal = new Animal("cat",2);
-                intent.putExtra("animal", animal);
+                intent.putExtra("arr_drawable",mArrayDrawable);
+//                Animal animal = new Animal("cat",2);
+//                intent.putExtra("animal", animal);
                 startActivity(intent);
             }
         });
