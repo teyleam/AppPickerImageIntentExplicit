@@ -69,7 +69,7 @@ public class MainActivity2 extends AppCompatActivity {
                     TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(mWidthScreen / 3 , mWidthScreen / 3);
                     imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     imageView.setLayoutParams(layoutParams);
-                    imageView.setTag(mCount);
+                    imageView.setTag(mResourceId);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -77,7 +77,10 @@ public class MainActivity2 extends AppCompatActivity {
 //                            intentData.putExtra("resourceData",(int) imageView.getTag());
 //                            setResult(Activity.RESULT_OK,intentData);
 //                            finish();
-                            Toast.makeText(MainActivity2.this, mArrDrawable[(int)imageView.getTag()],Toast.LENGTH_SHORT).show();
+                            Intent intentData = new Intent();
+                            intentData.putExtra("resourceData",(int)imageView.getTag());
+                            setResult(RESULT_OK,intentData);
+                            finish();
                         }
                     });
                     tableRow.addView(imageView);

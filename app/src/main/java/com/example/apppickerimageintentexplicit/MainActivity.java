@@ -3,10 +3,15 @@ package com.example.apppickerimageintentexplicit;
 import static com.example.apppickerimageintentexplicit.R.id.imgPick;
 import static com.example.apppickerimageintentexplicit.R.id.menu_item_refresh;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,10 +51,25 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("arr_drawable",mArrayDrawable);
 //                Animal animal = new Animal("cat",2);
 //                intent.putExtra("animal", animal);
-                startActivity(intent);
+                someActivityResultLauncher.launch(intent);
             }
         });
     }
+    //Tra ve resource id Activity2
+    private ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        //There are no request codes
+                        Intent data = result.getData();
+                        int resourceData  = data.getIntExtra("resourceData", -1);
+//                        Log.d("BBB",resourceData + "");
+                    }
+                }
+            });
+
 
     private void init() {
         // Anh xa
