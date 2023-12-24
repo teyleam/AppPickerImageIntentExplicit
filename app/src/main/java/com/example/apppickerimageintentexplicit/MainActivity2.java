@@ -66,21 +66,22 @@ public class MainActivity2 extends AppCompatActivity {
                     mResourceId = getResources().getIdentifier(mArrDrawable[mCount], "drawable", getPackageName());
                     ImageView imageView = new ImageView(this);
                     imageView.setImageResource(mResourceId);
-                    tableRow.addView(imageView);
-                    mCount++;
                     TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(mWidthScreen / 3 , mWidthScreen / 3);
-//                    imageView.setTag(mResourceId);
-                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     imageView.setLayoutParams(layoutParams);
-//                    imageView.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
+                    imageView.setTag(mCount);
+                    imageView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 //                            Intent intentData = new Intent();
 //                            intentData.putExtra("resourceData",(int) imageView.getTag());
 //                            setResult(Activity.RESULT_OK,intentData);
 //                            finish();
-//                        }
-//                    });
+                            Toast.makeText(MainActivity2.this, mArrDrawable[(int)imageView.getTag()],Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    tableRow.addView(imageView);
+                    mCount++;
                 }
             }
             mTbLayout.addView(tableRow);
