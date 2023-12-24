@@ -42,14 +42,14 @@ public class MainActivity2 extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             mArrDrawable = intent.getStringArrayExtra("arr_drawable");
-//            Collections.shuffle(Arrays.asList(mArrDrawable));
+            Collections.shuffle(Arrays.asList(mArrDrawable));
         }
 
         // Get dimension screen
-//        DisplayMetrics displayMetrics = new DisplayMetrics();
-//        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-//        mHeightScreen = displayMetrics.heightPixels;
-//        mWidthScreen = displayMetrics.widthPixels;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        mHeightScreen = displayMetrics.heightPixels;
+        mWidthScreen = displayMetrics.widthPixels;
 
 
         mRow = (int) Math.ceil(Double.parseDouble((mArrDrawable.length / 3f) + ""));
@@ -64,14 +64,14 @@ public class MainActivity2 extends AppCompatActivity {
                     // Tính vị trí của hình chữ nhật khi biết trục tung và hoành
 //                    mIndex =  mColumn * i  + y ;
                     mResourceId = getResources().getIdentifier(mArrDrawable[mCount], "drawable", getPackageName());
-                   // TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(mWidthScreen / 3 , mWidthScreen / 3);
                     ImageView imageView = new ImageView(this);
                     imageView.setImageResource(mResourceId);
                     tableRow.addView(imageView);
                     mCount++;
+                    TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(mWidthScreen / 3 , mWidthScreen / 3);
 //                    imageView.setTag(mResourceId);
-//                    imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//                    imageView.setLayoutParams(layoutParams);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    imageView.setLayoutParams(layoutParams);
 //                    imageView.setOnClickListener(new View.OnClickListener() {
 //                        @Override
 //                        public void onClick(View v) {
