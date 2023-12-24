@@ -78,7 +78,7 @@ public class MainActivity2 extends AppCompatActivity {
 //                            setResult(Activity.RESULT_OK,intentData);
 //                            finish();
                             Intent intentData = new Intent();
-                            intentData.putExtra("resourceData",(int)imageView.getTag());
+                            intentData.putExtra("resourceData",(int) imageView.getTag());
                             setResult(RESULT_OK,intentData);
                             finish();
                         }

@@ -64,8 +64,19 @@ public class MainActivity extends AppCompatActivity {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         //There are no request codes
                         Intent data = result.getData();
-                        int resourceData  = data.getIntExtra("resourceData", -1);
+                        int resourceData  = data.getIntExtra("resourceData", 1);
 //                        Log.d("BBB",resourceData + "");
+                        mImgPick.setImageResource(resourceData);
+                        if (resourceData == mResourceRandom){
+                            Toast.makeText(MainActivity.this, "Bạn chọn chính xác", Toast.LENGTH_SHORT).show();
+                            mResourceRandom = randomImage(mArrayDrawable);
+                            mImgRandom.setImageResource(mResourceRandom);
+                            mImgPick.setImageResource(R.drawable.nophoto);
+                        }else{
+                            Toast.makeText(MainActivity.this, "Bạn chọn chưa chính xác", Toast.LENGTH_SHORT).show();
+                        }
+                    }else{
+                        Toast.makeText(MainActivity.this, "Bạn chưa chọn hình", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
